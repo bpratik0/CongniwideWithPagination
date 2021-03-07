@@ -18,24 +18,24 @@ import model.PopularMoviesModel;
 
 public class PopularMoviesActivity extends AppCompatActivity {
 
-    private ActivityPopulerMoviesBinding mPopulerMoviesBinding;
-    private ItemViewModel mPopularMovieViewModel;
+    private ActivityPopulerMoviesBinding mPopularMoviesBinding;
+    private ItemViewModel mItemViewModel;
     private GridLayoutManager mGridLayoutManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        mPopulerMoviesBinding = DataBindingUtil.setContentView(this, R.layout.activity_populer_movies);
+        mPopularMoviesBinding = DataBindingUtil.setContentView(this, R.layout.activity_populer_movies);
         mGridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
-        mPopulerMoviesBinding.recyclerMovies.setLayoutManager(mGridLayoutManager);
-        mPopularMovieViewModel = ViewModelProviders.of(this).get(ItemViewModel.class);
+        mPopularMoviesBinding.recyclerMovies.setLayoutManager(mGridLayoutManager);
+        mItemViewModel = ViewModelProviders.of(this).get(ItemViewModel.class);
         CustomAdapter customAdapter = new CustomAdapter(this);
-        mPopularMovieViewModel.itemPagedList.observe(this, new Observer<PagedList<PopularMoviesModel>>() {
+        mItemViewModel.itemPagedList.observe(this, new Observer<PagedList<PopularMoviesModel>>() {
             @Override
             public void onChanged(PagedList<PopularMoviesModel> popularMoviesModels) {
                 customAdapter.submitList(popularMoviesModels);
-                mPopulerMoviesBinding.recyclerMovies.setAdapter(customAdapter);
+                mPopularMoviesBinding.recyclerMovies.setAdapter(customAdapter);
             }
         });
     }

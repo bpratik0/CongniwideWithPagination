@@ -16,7 +16,6 @@ import viewmodel.LoginViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
     private ActivityMainBinding mMainBinding;
     private LoginViewModel mLoginViewModel;
     boolean isEmailCorrect, isPasswordCorrect = false;
