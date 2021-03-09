@@ -4,7 +4,7 @@ import android.content.Context;
 
 import javax.inject.Singleton;
 
-import adapter.ItemDataSource;
+import adapter.PopularMovieDataSource;
 import retrofit.RetrofitRepository;
 
 @Module
@@ -24,7 +24,7 @@ public class PopularMoviesModule {
 
     @Singleton
     @Provides
-    public ItemDataSource provideItemDataSource() {
-        return new ItemDataSource(context);
+    public PopularMovieDataSource provideItemDataSource() {
+        return new PopularMovieDataSource(context);
     }
 }

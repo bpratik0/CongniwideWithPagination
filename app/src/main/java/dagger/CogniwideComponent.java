@@ -4,7 +4,7 @@ import com.cogniwide.cogniwidetask.PopularMoviesActivity;
 
 import javax.inject.Singleton;
 
-import adapter.ItemDataSource;
+import adapter.PopularMovieDataSource;
 import retrofit.RetrofitRepository;
 import viewmodel.PopularMovieViewModel;
 
@@ -17,5 +17,5 @@ public interface CogniwideComponent {
 
     void inject(PopularMoviesActivity popularMoviesActivity);
 
-    void inject(ItemDataSource itemDataSource);
+    void inject(PopularMovieDataSource itemDataSource);
 }

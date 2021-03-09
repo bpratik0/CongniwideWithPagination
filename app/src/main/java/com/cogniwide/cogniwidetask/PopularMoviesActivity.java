@@ -13,13 +13,13 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import com.cogniwide.cogniwidetask.databinding.ActivityPopulerMoviesBinding;
 
 import adapter.CustomAdapter;
-import adapter.ItemViewModel;
+import viewmodel.MovieViewModel;
 import model.PopularMoviesModel;
 
 public class PopularMoviesActivity extends AppCompatActivity {
 
     private ActivityPopulerMoviesBinding mPopularMoviesBinding;
-    private ItemViewModel mItemViewModel;
+    private MovieViewModel mItemViewModel;
     private GridLayoutManager mGridLayoutManager;
 
     @Override
@@ -29,7 +29,7 @@ public class PopularMoviesActivity extends AppCompatActivity {
         mPopularMoviesBinding = DataBindingUtil.setContentView(this, R.layout.activity_populer_movies);
         mGridLayoutManager = new GridLayoutManager(getApplicationContext(), 2);
         mPopularMoviesBinding.recyclerMovies.setLayoutManager(mGridLayoutManager);
-        mItemViewModel = ViewModelProviders.of(this).get(ItemViewModel.class);
+        mItemViewModel = ViewModelProviders.of(this).get(MovieViewModel.class);
         CustomAdapter customAdapter = new CustomAdapter(this);
         mItemViewModel.itemPagedList.observe(this, new Observer<PagedList<PopularMoviesModel>>() {
             @Override

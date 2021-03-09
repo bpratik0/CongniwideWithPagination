@@ -17,7 +17,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class ItemDataSource extends PageKeyedDataSource<Integer, PopularMoviesModel> {
+public class PopularMovieDataSource extends PageKeyedDataSource<Integer, PopularMoviesModel> {
 
     public static final int PAGE_SIZE = 50;
     private static final int FIRST_PAGE = 1;
@@ -26,7 +26,7 @@ public class ItemDataSource extends PageKeyedDataSource<Integer, PopularMoviesMo
     Retrofit mRetrofit;
 
     @Inject
-    public ItemDataSource(Context context) {
+    public PopularMovieDataSource(Context context) {
         ((MyApplication) context).getNetComponent().inject(this);
     }
 

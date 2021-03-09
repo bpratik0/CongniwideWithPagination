@@ -9,20 +9,20 @@ import androidx.paging.PageKeyedDataSource;
 
 import model.PopularMoviesModel;
 
-public class ItemDataSourceFactory extends DataSource.Factory {
+public class PopularMovieDataSourceFactory extends DataSource.Factory {
 
     private MutableLiveData<PageKeyedDataSource<Integer, PopularMoviesModel>> itemLiveDataSource = new MutableLiveData<>();
     private Context mContext;
 
-    public ItemDataSourceFactory(Context context) {
+    public PopularMovieDataSourceFactory(Context context) {
         mContext = context;
     }
 
     @Override
     public DataSource create() {
-        ItemDataSource itemDataSource = new ItemDataSource(mContext);
-        itemLiveDataSource.postValue(itemDataSource);
-        return itemDataSource;
+        PopularMovieDataSource popularMoviesDataSource = new PopularMovieDataSource(mContext);
+        itemLiveDataSource.postValue(popularMoviesDataSource);
+        return popularMoviesDataSource;
     }
 
     public MutableLiveData<PageKeyedDataSource<Integer, PopularMoviesModel>> getItemLiveDataSource() {
